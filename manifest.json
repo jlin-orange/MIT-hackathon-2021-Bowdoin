@@ -8,5 +8,8 @@
         "default_icon": "icon19.png",
         "default_popup": "window.html"
     },
+    "chrome_url_overrides": {
+        "newtab": "newpage.html"
+    },
     "permissions": ["activeTab"]
 }
