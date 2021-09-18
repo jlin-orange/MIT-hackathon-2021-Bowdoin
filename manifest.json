@@ -1,0 +1,12 @@
+{
+    "name": "Take 5",
+    "description": "This extension provides a distraction quick 5 minute break",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "icons": {"128": "icon128.png"},
+    "browser_action": {
+        "default_icon": "icon19.png",
+        "default_popup": "window.html"
+    },
+    "permissions": ["activeTab"]
+}
