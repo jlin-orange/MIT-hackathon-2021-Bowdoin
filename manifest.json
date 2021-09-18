@@ -1,6 +1,6 @@
 {
     "name": "Take 5",
-    "description": "This extension provides a distraction quick 5 minute break",
+    "description": "This extension eliminates distractions on your computer for a 5 minute break!",
     "version": "1.0.0",
     "manifest_version": 2,
     "icons": {"128": "icon128.png"},

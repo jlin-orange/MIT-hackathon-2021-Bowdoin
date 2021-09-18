@@ -12,8 +12,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     
 })
 
+/**
+ * Takes chrome out of full screen along & close the current tab
+ */
 function closeTab() {
-    // make chrome full screen along with the new tab
     chrome.windows.getCurrent(function (win) {
         chrome.windows.update(win.id, { state: "normal" })
     });
@@ -23,11 +25,10 @@ function closeTab() {
     });
 }
 
-var timeLeft = 300; // 5 min break
-
-//5 minute countdown
+// 5 minute countdown
+var timeLeft = 300; 
 var downloadTimer = setInterval(function(){
-    if(timeLeft <= 0){
+    if (timeLeft <= 0) {
       clearInterval(downloadTimer);
       document.getElementById("countdown-timer").innerHTML = "Break over!";
       closeTab();
