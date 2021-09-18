@@ -1,7 +1,10 @@
-chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.create({'url':"chrome://newtab"})
-    
+chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.tabs.create({
+      url: chrome.extension.getURL('window.html'),
+      selected: true,
+    })
 })
+
 function openInNewTab(url) {
     window.open(url, '_blank').focus();
 
@@ -22,15 +25,15 @@ var timeLeft = 300; //5 min break
 var downloadTimer = setInterval(function(){
     if(timeLeft <= 0){
       clearInterval(downloadTimer);
-      document.getElementById("countdown").innerHTML = "Break over!";
+      document.getElementById("countdown-timer").innerHTML = "Break over!";
       closeTab();
     } else {
-        if (timeLeft < 60){
-            document.getElementById("countdown").innerHTML = "0:" + timeLeft;
+        currentMinutes = Math.floor(timeLeft / 60);
+        currentSeconds = timeLeft % 60;
+        if (currentSeconds < 10){
+            document.getElementById("countdown-timer").innerHTML = currentMinutes + ":0" + currentSeconds;
         } else {
-            currentMinutes = Math.floor(timeLeft / 60);
-            currentSeconds = timeLeft % 60;
-            document.getElementById("countdown").innerHTML = currentMinutes + ":" + currentcurrentSeconds + timeLeft;
+            document.getElementById("countdown-timer").innerHTML = currentMinutes + ":" + currentSeconds;
         }
     }
     timeLeft -= 1;

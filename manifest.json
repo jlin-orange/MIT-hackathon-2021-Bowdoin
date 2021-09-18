@@ -4,12 +4,12 @@
     "version": "1.0.0",
     "manifest_version": 2,
     "icons": {"128": "icon128.png"},
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
     "browser_action": {
-        "default_icon": "icon19.png",
-        "default_popup": "window.html"
+        "default_icon": "icon19.png"
     },
-    "chrome_url_overrides": {
-        "newtab": "newpage.html"
-    },
-    "permissions": ["activeTab"]
+    "permissions": ["tabs"]
 }
